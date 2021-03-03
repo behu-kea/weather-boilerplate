@@ -17,41 +17,22 @@ import java.util.HashMap;
 
 @Controller
 public class WeatherController {
+    // Service to get a random city
     WeatherService weatherService = new WeatherService();
 
     @GetMapping("/assign-random-city")
     @ResponseBody
     // This method should save the randomly generated city in a session
-    public String assignRandomCity(HttpServletRequest request) throws IOException {
-        HttpSession httpSession = request.getSession();
+    public String assignRandomCity() {
         String randomCity = weatherService.getRandomCity();
-        ArrayList<String> cities = (ArrayList<String>) httpSession.getAttribute("cities");
-
-        if (cities == null) {
-            cities = new ArrayList<>();
-            // if notes object is not present in session, set notes in the request session
-            httpSession.setAttribute("cities", cities);
-        }
-
-        cities.add(randomCity);
-
-        WeatherData weatherData = CityWeather.getWeatherData("london", "API_KEY");
-        // Getting the first item in the array
-        HashMap<String, String> weather = weatherData.weather.get(0);
-
-        String weatherDescription = weather.get("main");
-        Float temperature = weatherData.main.get("temp");
-        Float humidity = weatherData.main.get("humidity");
-
-        return "Random city has been assigned";
+        System.out.println(randomCity);
+        return "";
     }
 
     @GetMapping("/get-random-cities")
     @ResponseBody
     // this method should get the random city generated above
-    public ArrayList<String> getRandomCities(HttpServletRequest request) {
-        HttpSession httpSession = request.getSession();
-
-        return (ArrayList<String>) httpSession.getAttribute("cities");
+    public String getRandomCities() {
+        return "";
     }
 }
