@@ -35,7 +35,7 @@ public class WeatherController {
 
         cities.add(randomCity);
 
-        WeatherData weatherData = CityWeather.getWeatherData("london", "2135c3f7f652abb768bf5a7fd30d743c");
+        WeatherData weatherData = CityWeather.getWeatherData("london", "API_KEY");
         // Getting the first item in the array
         HashMap<String, String> weather = weatherData.weather.get(0);
 
