@@ -33,6 +33,6 @@ public class WeatherController {
     @ResponseBody
     // this method should get the random city generated above
     public String getRandomCities() {
-        return "benjamin";
+        return "";
     }
 }
