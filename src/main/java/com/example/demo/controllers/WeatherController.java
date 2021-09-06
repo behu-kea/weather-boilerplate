@@ -24,6 +24,8 @@ public class WeatherController {
     @ResponseBody
     // This method should save the randomly generated city in a session
     public String assignRandomCity() {
+
+        System.out.println(1);
         String randomCity = weatherService.getRandomCity();
         System.out.println(randomCity);
         return "";
